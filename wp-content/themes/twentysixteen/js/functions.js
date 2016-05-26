@@ -198,3 +198,5 @@
 		belowEntryMetaClass( 'blockquote.alignleft, blockquote.alignright' );
 	} );
 } )( jQuery );
+
+window.$ = jQuery

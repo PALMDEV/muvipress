@@ -1,0 +1,86 @@
+/* your styles go here */
+
+
+.logo{
+	width: 25%;
+}
+
+.logo-small{
+	width: 10%;
+}
+
+.principal-carousel .owl-item:nth-child(1){
+	background-image: url(../img/slider/3d.jpg);
+	background-size: cover;
+}
+.principal-carousel .owl-item:nth-child(2){
+	background-image: url(../img/slider/2.jpg);
+	background-size: cover;
+}
+.principal-carousel .owl-item:nth-child(3){
+	background-image: url(../img/slider/3.jpg);
+	background-size: cover;
+}
+.principal-carousel .owl-item:nth-child(4){
+	background-image: url(../img/slider/4.jpg);
+	background-size: cover;
+}
+.principal-carousel .owl-item:nth-child(5){
+	background-image: url(../img/slider/5.png);
+	background-size: cover;
+}
+
+.principal-carousel .owl-item{
+	height: 100%;
+	height: 390px;
+	padding-top: 60px;
+    padding-bottom: 20px;
+	background-position: center;
+}
+
+
+.principal-carousel .item{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+	background: rgba(0, 0, 0, 0.5);
+	height: 225px
+}
+
+.principal-carousel .owl-item > div{
+	z-index: 2;
+}
+/*.principal-carousel .owl-item,
+.principal-carousel .item,
+.principal-carousel .row,
+*/
+.principal-carousel .owl-controls{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto 0;
+}
+
+.home-carousel .principal-carousel{
+	padding: 0;
+	position: relative;
+	height: 390px;
+	box-shadow: inset 0 0 5px 0 black;
+}
+
+.fluid{
+	width: 100%;
+	height: 100%;
+}
+
+#top{
+    background: #DA4D4D;
+}
+
+
+.muvi .lead{
+	text-align: center;
+}
+/*.home-carousel .dark-mask {
+    opacity: 0.5;
+    z-index: 1;
+}*/
