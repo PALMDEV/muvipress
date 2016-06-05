@@ -515,8 +515,7 @@ if (function_exists('equity')) {
 		echo '</div><!-- #content -->
 		</div><!-- #primary -->';
 	}
-
-	get_sidebar();
+	
 	get_footer();
 
 }
