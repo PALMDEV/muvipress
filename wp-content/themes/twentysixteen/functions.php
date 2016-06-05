@@ -246,31 +246,19 @@ add_action( 'wp_head', 'twentysixteen_javascript_detection', 0 );
  */
 function twentysixteen_scripts() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
+//	wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
+	// Load theme style
+	wp_enqueue_style( 'muvi-style', get_stylesheet_uri() );
+	// Load Custom css
+	wp_enqueue_style( 'carousel', get_template_directory_uri() . '/css/muvi/owl.carousel.css', array( 'muvi-style' ));
+	wp_enqueue_style( 'carousel-custom', get_template_directory_uri() . '/css/muvi/owl.theme.css', array( 'carousel' ));
+	wp_enqueue_style( 'custom-css', get_template_directory_uri() . '/css/muvi/custom.css', array( 'carousel-custom' ));
 
-	// Theme stylesheet.
-	wp_enqueue_style( 'twentysixteen-style', get_stylesheet_uri() );
+	wp_enqueue_script( 'skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160412', true );
 
-	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentysixteen-style' ), '20160412' );
-	wp_style_add_data( 'twentysixteen-ie', 'conditional', 'lt IE 10' );
-
-	// Load the Internet Explorer 8 specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie8', get_template_directory_uri() . '/css/ie8.css', array( 'twentysixteen-style' ), '20160412' );
-	wp_style_add_data( 'twentysixteen-ie8', 'conditional', 'lt IE 9' );
-
-	// Load the Internet Explorer 7 specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie7', get_template_directory_uri() . '/css/ie7.css', array( 'twentysixteen-style' ), '20160412' );
-	wp_style_add_data( 'twentysixteen-ie7', 'conditional', 'lt IE 8' );
-
-	// Load the html5 shiv.
-	wp_enqueue_script( 'twentysixteen-html5', get_template_directory_uri() . '/js/html5.js', array(), '3.7.3' );
-	wp_script_add_data( 'twentysixteen-html5', 'conditional', 'lt IE 9' );
-
-	wp_enqueue_script( 'twentysixteen-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160412', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -280,7 +268,16 @@ function twentysixteen_scripts() {
 		wp_enqueue_script( 'twentysixteen-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20160412' );
 	}
 
-	wp_enqueue_script( 'twentysixteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20160412', true );
+
+
+	wp_enqueue_script( 'muvi-script1', get_template_directory_uri() . '/js/muvi/jquery.cookie.js', array( 'jquery' ));
+	wp_enqueue_script( 'muvi-script2', get_template_directory_uri() . '/js/muvi/waypoints.min.js', array( 'muvi-script1' ));
+	wp_enqueue_script( 'muvi-script3', get_template_directory_uri() . '/js/muvi/jquery.counterup.min.js', array( 'muvi-script2' ));
+	wp_enqueue_script( 'muvi-script4', get_template_directory_uri() . '/js/muvi/jquery.parallax-1.1.3.js', array( 'muvi-script3' ));
+	wp_enqueue_script( 'muvi-script5', get_template_directory_uri() . '/js/muvi/jquery.counterup.min.js"', array( 'muvi-script4' ));
+	wp_enqueue_script( 'muvi-script6', get_template_directory_uri() . '/js/muvi/front.js', array( 'muvi-script5' ));
+	wp_enqueue_script( 'muvi-script7', get_template_directory_uri() . '/js/muvi/owl.carousel.min.js', array( 'muvi-script6' ));
+	wp_enqueue_script( 'muvi-funtion', get_template_directory_uri() . '/js/functions.js', array( 'muvi-script7' ));
 
 	wp_localize_script( 'twentysixteen-script', 'screenReaderText', array(
 		'expand'   => __( 'expand child menu', 'twentysixteen' ),

@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area container">
 	<main id="main" class="site-main" role="main">
 		<?php
 		// Start the loop.
@@ -37,5 +37,5 @@ get_header(); ?>
 
 </div><!-- .content-area -->
 
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

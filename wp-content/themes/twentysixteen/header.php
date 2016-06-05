@@ -86,10 +86,10 @@
 			<div class="container">
 				<div class="navbar-header">
 
-					<a class="navbar-brand home" href="index.html">
-						<img src="img/logo.jpg" alt="Universal logo" class="hidden-xs hidden-sm logo">
-						<img src="img/logo-small.jpg" alt="Universal logo" class="visible-xs visible-sm logo-small"><span class="sr-only">Muvi ir al home page</span>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<a class="navbar-brand home" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<img src="<?php echo get_template_directory_uri()?>/img/logo.jpg" alt="<?php bloginfo( 'name' ); ?>" class="hidden-xs hidden-sm logo">
+						<img src="<?php echo get_template_directory_uri()?>/img/logo-small.jpg" alt="<?php bloginfo( 'name' ); ?>" class="visible-xs visible-sm logo-small"><span class="sr-only">Muvi ir al home page</span>
+<!--						<p class="site-title"><a href="--><?php //echo esc_url( home_url( '/' ) ); ?><!--" rel="home">--><?php //bloginfo( 'name' ); ?><!--</a></p>-->
 					</a>
 					<div class="navbar-buttons">
 						<button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -107,81 +107,12 @@
 								'theme_location' => 'primary',
 								'depth' => 2,
 								'container' => false,
-								'menu_class' => 'nav navbar-nav',
+								'menu_class' => 'nav navbar-nav navbar-right',
 								'fallback_cb' => 'wp_page_menu',
 								//Process nav menu using our custom nav walker
 								'walker' => new wp_bootstrap_navwalker())
 							);
 					 endif; ?>
-
-					<ul class="nav navbar-nav navbar-right" style="display: none;">
-
-
-						<li class="dropdown active">
-							<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Inicio </a>
-
-						</li>
-						<li class="dropdown use-yamm yamm-fw">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portafolio<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li>
-									<div class="yamm-content">
-										<div class="row">
-											<div class="col-sm-6">
-
-											</div>
-											<div class="col-sm-3">
-												<h3>Apartamentos</h3>
-												<ul>
-													<li><a href="index.html">Residencial E + V III</a>
-													</li>
-												</ul>
-												<h3>Locales comerciales</h3>
-												<ul>
-													<li><a href="index2.html">Metropolitano I</a>
-													</li>
-													<li><a href="index2.html">Metropolitano III</a>
-													</li>
-												</ul>k
-												<h3>Solares</h3>
-												<ul>
-													<li><a href="index.html">Residencial E + V III</a>
-													</li>
-													<li><a href="index2.html">Metropolitano I</a>
-													</li>
-													<li><a href="index2.html">Metropolitano III</a>
-													</li>
-													<li><a href="index2.html">Solares</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown use-yamm yamm-fw">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contactanos</a>
-						</li>
-						<!-- ========== FULL WIDTH MEGAMENU ================== -->
-						<li class="dropdown use-yamm yamm-fw">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Sobre Nosotros</b></a>
-						</li>
-						<!-- ========== FULL WIDTH MEGAMENU END ================== -->
-
-						<!--  <li class="dropdown">
-                             <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-                             <ul class="dropdown-menu">
-                                 <li><a href="contact.html">Contact option 1</a>
-                                 </li>
-                                 <li><a href="contact2.html">Contact option 2</a>
-                                 </li>
-                                 <li><a href="contact3.html">Contact option 3</a>
-                                 </li>
-
-                             </ul>
-                         </li> -->
-					</ul>
 
 				</div>
 				<!--/.nav-collapse -->
@@ -220,49 +151,4 @@
 <!-- ########################## End movie top ########################-->
 
 
-<div id="page" class="site">
-	<div class="site-inner">
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
-
-		<header id="masthead" class="site-header" role="banner">
-			<div class="site-header-main">
-				<div class="site-branding">
-					<?php twentysixteen_the_custom_logo(); ?>
-
-					<?php if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-
-					<?php endif;
-
-					$description = get_bloginfo( 'description', 'display' );
-					if ( $description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo $description; ?></p>
-					<?php endif; ?>
-				</div><!-- .site-branding -->
-
-
-			</div><!-- .site-header-main -->
-
-			<?php if ( get_header_image() ) : ?>
-				<?php
-					/**
-					 * Filter the default twentysixteen custom header sizes attribute.
-					 *
-					 * @since Twenty Sixteen 1.0
-					 *
-					 * @param string $custom_header_sizes sizes attribute
-					 * for Custom Header. Default '(max-width: 709px) 85vw,
-					 * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px'.
-					 */
-					$custom_header_sizes = apply_filters( 'twentysixteen_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px' );
-				?>
-				<div class="header-image">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img src="<?php header_image(); ?>" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( get_custom_header()->attachment_id ) ); ?>" sizes="<?php echo esc_attr( $custom_header_sizes ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-					</a>
-				</div><!-- .header-image -->
-			<?php endif; // End header image check. ?>
-		</header><!-- .site-header -->
-
-		<div id="content" class="site-content">
+<div id="content" class="site-content">
